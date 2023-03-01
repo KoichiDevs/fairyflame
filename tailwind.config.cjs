@@ -13,7 +13,9 @@ module.exports = {
 
             boxShadow: {
                 bot: '0px -53px 30px 20px rgba(11,7,6,0.89) inset',
-                pinkglow: '0px 0px 133px 20px rgba(247,105,102,1)'
+                pinkglow: '0px 0px 133px 20px rgba(247,105,102,1)',
+                progress: '0px 0px 200px 5px rgba(255,255,255,0.5)'
+
             },
             dropShadow: {
                 glowi: '0px 0px 63px #f76966'
