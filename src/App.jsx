@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import video from './assets/video.mp4'
 import video2 from './assets/video2.mp4'
 import { genRandom } from '../utils/genRandom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, checkTargetForNewValues } from 'framer-motion'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 import { BsTelegram } from 'react-icons/bs'
 
@@ -11,6 +11,7 @@ const App = () => {
     const [letters, setTest] = useState([''])
     const word = "FAIRYFLAME"
     const wordArr = word.split('')
+    const ref = useRef(null)
 
     useEffect(() => {
         var tempArray = ['']
@@ -96,10 +97,22 @@ const App = () => {
     }, [])
 
     const [vid, setVideo] = useState(true)
+    const [percent, setPercent] = useState(0)
 
     const toggle = () => {
         setVideo(curr => !curr)
     }
+
+    useEffect(() => {
+
+        ref.current.addEventListener('scroll', e => {
+            const myDiv = ref.current
+            const percentScrolled = (myDiv.scrollTop / (myDiv.scrollHeight - myDiv.clientHeight)) * 100;
+            setPercent(percentScrolled)
+        })
+    }, [ref])
+
+
 
     return (
         <section className='w-full h-screen relative overflow-hidden bg-black'>
@@ -108,9 +121,9 @@ const App = () => {
 
             <div className='fixed top-0 left-0 w-full h-full bg-[rgba(15,15,15,0.40)] z-[9]'></div>
             <AnimatePresence mode="wait">
-                {vid === true ? <motion.video initial={{ opacity: 0 }} animate={{ opacity: 100 }} exit={{opacity: 0}} transition={{ duration: 0.6 }} src={video} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' key="firstvideo"></motion.video>
+                {vid === true ? <motion.video initial={{ opacity: 0 }} animate={{ opacity: 100 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }} src={video} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' key="firstvideo"></motion.video>
                     :
-                   <motion.video initial={{ opacity: 0 }} animate={{ opacity: 100 }} exit={{opacity: 0}} transition={{ duration: 1 }} src={video2} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' key="secondvideo"></motion.video> 
+                    <motion.video initial={{ opacity: 0 }} animate={{ opacity: 100 }} exit={{ opacity: 0 }} transition={{ duration: 1 }} src={video2} autoPlay loop muted className='w-full object-cover h-full z-0 absolute top-0 left-0' key="secondvideo"></motion.video>
                 }
 
             </AnimatePresence>
@@ -162,7 +175,7 @@ const App = () => {
 
 
 
-                    <motion.div variants={variant} initial="initial" animate="animate" className='overflow-y-scroll text-center md:max-w-[25rem] h-[16rem] font-albertus p-3 mx-auto miniglow noscroll flex flex-col gap-y-8 mt-10 wrapper relative opacity-80 2xl:text-xl 2xl:h-[20rem] max-w-[20rem]'>
+                    <motion.div variants={variant} initial="initial" animate="animate" className='overflow-y-scroll text-center md:max-w-[25rem] h-[16rem] font-albertus p-3 mx-auto miniglow noscroll flex flex-col gap-y-8 mt-10 wrapper relative opacity-80 2xl:text-xl 2xl:h-[20rem] max-w-[20rem]' ref={ref}>
                         <motion.p variants={child} className="">
                             Life is a game that I play,
                             My wings spread in open air,
