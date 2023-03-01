@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  cursor: none;
+}
+
+@font-face {
+  font-family: "Albertus";
+  src: url("../fonts/AlbertusNova.ttf");
+}
+
+@font-face {
+  font-family: "ProximaNova";
+  src: url("../fonts/ProximaNova.ttf");
+}
+
+.glow {
+  text-shadow: 0px 0px 25px #FFFFFF;
+}
+
+.glow:hover {
+  text-shadow: 0px 0px 25px #f76966;
+}
+
+.mini-glow {
+  text-shadow: 0px 0px 14px #FFFFFF;
+  
+}
+
+.noscroll {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.noscroll::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.wrapper::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1111;
+  background-image: linear-gradient(transparent, transparent);
+  height: 50px;
+}
