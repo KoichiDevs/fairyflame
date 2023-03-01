@@ -128,6 +128,12 @@ const App = () => {
 
             </AnimatePresence>
 
+            <div className="absolute bottom-0 left-0 w-full h-8 text-white z-30 px-3 font-albertus flex items-center">
+                <div className="h-[3px] w-full bg-[#1b1b1b] relative">
+                    <div className="h-full w-0 bg-white absolute left-0 top-0" style={{width: `${percent}%`}}></div>
+                </div>
+            </div>
+
             <div className="absolute z-20 h-full top-0 left-0 w-full flex">
                 <nav className="absolute top-0 left-0 flex  justify-between w-full items-center">
 
