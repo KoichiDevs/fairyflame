@@ -144,9 +144,10 @@ const App = () => {
                         <img src="/logo.webp" alt="Logo" className="w-24" />
                         <AiFillTwitterCircle className='text-[28px]  hover:drop-shadow-glowi hover:text-mypink transition-all ease-in-out duration-300' />
                         <BsTelegram className='hover:drop-shadow-glowi hover:text-mypink transition-all ease-in-out duration-300r' />
+
                     </div>
 
-                    <button className="px-8 py-3  text-white font-albertus rounded-lg group absolute top-9 right-0 left-0 mx-auto w-fit" onClick={toggle}>
+                    <button className="px-8 py-3  text-white font-albertus rounded-lg group absolute top-9 right-0 left-0 mx-auto w-fit md:text-lg text-sm" onClick={toggle}>
                         <p className="mb-2">
                             Switch
                         </p>
@@ -157,9 +158,9 @@ const App = () => {
                         </div>
                     </button>
 
-                    <button className="px-8 py-3  text-white font-albertus mr-8 rounded-lg group absolute top-9 right-0">
+                    <button className="px-8 py-3  text-white font-albertus md:mr-5 mr-3 rounded-lg group absolute top-9 right-0 md:text-lg text-sm">
                         <p className="mb-2">
-                            Get Started
+                            Buy on Uniswap
                         </p>
                         <div className="w-8 h-[7px] relative mx-auto group-hover:w-full transition-all ease-in-out duration-300">
                             <div className="w-2 h-2 bg-mypink rounded-full absolute right-0 top-0 bottom-0"></div>
@@ -172,6 +173,12 @@ const App = () => {
                 <div className="w-full h-full z-10 absolute pointer-events-none shadow-bot"></div>
 
                 <div className="max-w-[1500px] mx-auto text-white w-fit h-fit self-end mb-8">
+
+                    <a href="https://www.makesoil.org/" target="_blank" rel="noopener noreferrer" className="">
+                        <img src="/makesoil.webp" alt="makesoil" className="mx-auto absolute bottom-6 right-6 z-20 glow" />
+
+                    </a>
+
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ duration: 1.5, ease: [.29, .95, .69, .98] }} className="flex lg:w-[33rem] md:w-[22rem] w-[16.5rem] mx-auto 2xl:w-[59rem] relative">
                         <img src="/fly.gif" alt="Fly" className="absolute z-10 transform -scale-x-100 w-20 -top-11 -left-11 pointer-events-none" />
                         {letters.map((items, i) => {
