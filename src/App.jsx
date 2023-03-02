@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import video from './assets/video.mp4'
 import video2 from './assets/video2.mp4'
 import { genRandom } from '../utils/genRandom'
-import { motion, AnimatePresence, checkTargetForNewValues } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 import { BsTelegram } from 'react-icons/bs'
 
@@ -103,14 +103,15 @@ const App = () => {
         setVideo(curr => !curr)
     }
 
-    useEffect(() => {
+    // FOR PROGRESS BAR
+    // useEffect(() => {
 
-        ref.current.addEventListener('scroll', e => {
-            const myDiv = ref.current
-            const percentScrolled = (myDiv.scrollTop / (myDiv.scrollHeight - myDiv.clientHeight)) * 100;
-            setPercent(percentScrolled)
-        })
-    }, [ref])
+    //     ref.current.addEventListener('scroll', e => {
+    //         const myDiv = ref.current
+    //         const percentScrolled = (myDiv.scrollTop / (myDiv.scrollHeight - myDiv.clientHeight)) * 100;
+    //         setPercent(percentScrolled)
+    //     })
+    // }, [ref])
 
 
 
@@ -128,11 +129,12 @@ const App = () => {
 
             </AnimatePresence>
 
-            <div className="absolute bottom-0 left-0 w-full h-8 text-white z-30 px-3 font-albertus flex items-center">
+            {/* PROGRESS BAR */}
+            {/* <div className="absolute bottom-0 left-0 w-full h-8 text-white z-30 px-3 font-albertus flex items-center">
                 <div className="h-[3px] w-full bg-[#1b1b1b] relative">
-                    <div className="h-full w-0 bg-[#535353] absolute left-0 top-0 shadow-progress" style={{width: `${percent}%`}}></div>
+                    <div className="h-full w-0 bg-[#535353] absolute left-0 top-0 shadow-progress" style={{ width: `${percent}%` }}></div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="absolute z-20 h-full top-0 left-0 w-full flex">
                 <nav className="absolute top-0 left-0 flex  justify-between w-full items-center">
@@ -181,63 +183,68 @@ const App = () => {
 
 
 
-                    <motion.div variants={variant} initial="initial" animate="animate" className='overflow-y-scroll text-center md:max-w-[25rem] h-[16rem] font-albertus p-3 mx-auto miniglow noscroll flex flex-col gap-y-8 mt-10 wrapper relative opacity-80 2xl:text-xl 2xl:h-[20rem] max-w-[20rem]' ref={ref}>
-                        <motion.p variants={child} className="">
-                            Life is a game that I play,
-                            My wings spread in open air,
-                            Dreaming of a better place,
-                            Where no one feels despair.
-                        </motion.p>
+                    <motion.div variants={variant} initial="initial" animate="animate" className='overflow-hidden text-center md:max-w-[25rem] h-[16rem] font-albertus p-3 mx-auto miniglow noscroll flex flex-col gap-y-8 mt-10 wrapper relative opacity-80 2xl:text-xl 2xl:h-[20rem] max-w-[20rem]' ref={ref}>
+                        <div className="absolute top-0 left-0 flex flex-col gap-y-8 marquee w-full">
+                            <div className="absolute top-left left-0 flex flex-col gap-y-10 w-full">
+                                <p className="">
+                                    Life is a game that I play,
+                                    My wings spread in open air,
+                                    Dreaming of a better place,
+                                    Where no one feels despair.
+                                </p>
 
-                        <motion.p variants={child} className="">
-                            I'm not looking for a fight,
-                            But sometimes it gets too bright,
-                            My fire starts to grow.
-                        </motion.p>
+                                <p className="">
+                                    I'm not looking for a fight,
+                                    But sometimes it gets too bright,
+                                    My fire starts to grow.
+                                </p>
 
-                        <motion.p variants={child} className="">
-                            And it's my fairy flame,
-                            Carry me away,
-                            Lighting up the night and day,
-                            My fairy flame.
-                        </motion.p>
+                                <p className="">
+                                    And it's my fairy flame,
+                                    Carry me away,
+                                    Lighting up the night and day,
+                                    My fairy flame.
+                                </p>
 
-                        <motion.p variants={child} className="">
-                            Strange things in the shadows glimmering,
-                            A peaceful glow surrounding me,
-                            I feel so strong there's no denying it,
-                            Wherever I go keeps me free.
-                        </motion.p>
+                                <p className="">
+                                    Strange things in the shadows glimmering,
+                                    A peaceful glow surrounding me,
+                                    I feel so strong there's no denying it,
+                                    Wherever I go keeps me free.
+                                </p>
 
-                        <motion.p variants={child} className="">
-                            And it's my fairy flame,
-                            Carry me away,
-                            Lighting up the night and day ,
-                            My fairy flame .
-                        </motion.p>
+                                <p className="">
+                                    And it's my fairy flame,
+                                    Carry me away,
+                                    Lighting up the night and day ,
+                                    My fairy flame .
+                                </p>
 
-                        <motion.p variants={child} className="">
-                            &#40;My beacon stays alive and strong,
-                            A symbol of what I belong.	&#41;
-                        </motion.p>
+                                <p className="">
+                                    &#40;My beacon stays alive and strong,
+                                    A symbol of what I belong.	&#41;
+                                </p>
 
-                        <motion.p variants={child} className="">
-                            Trying to go higher and higher ,
-                            But feeling like a tiny spark in this sky .
-                            Oooooh oooooh
-                            Oooooh oooooh
-                            With every step that i make ,
-                            That little light starts getting brighter .
-                            Oooooh oooooh
-                            Oooooh oooooh
-                        </motion.p>
+                                <p className="">
+                                    Trying to go higher and higher ,
+                                    But feeling like a tiny spark in this sky .
+                                    Oooooh oooooh
+                                    Oooooh oooooh
+                                    With every step that i make ,
+                                    That little light starts getting brighter .
+                                    Oooooh oooooh
+                                    Oooooh oooooh
+                                </p>
 
-                        <motion.p variants={child} className="">
-                            And it's my fairy flame,
-                            Carry me away,
-                            Lighting up the night and day ,
-                            My fairy flame .
-                        </motion.p>
+                                <p className="">
+                                    And it's my fairy flame,
+                                    Carry me away,
+                                    Lighting up the night and day ,
+                                    My fairy flame .
+                                </p>
+                            </div>
+                        </div>
+
                     </motion.div>
                 </div>
             </div>
